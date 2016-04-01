@@ -55,5 +55,8 @@ return [
             'cronserver' => false,
         ],
 	],
+	'aliases' => [
+        '@GoogleClientApi' => '@vendor/google/apiclient',
+    ],
     'params' => $params,
 ];

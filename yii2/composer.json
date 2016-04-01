@@ -18,9 +18,18 @@
         "yiisoft/yii2": ">=2.0.6",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-		"splashlab/yii-facebook-opengraph": "dev-master",
-		"google/apiclient": "1.0.*@beta",
-		"whatsapp/chat-api": "*"
+        "yiisoft/yii2-gii": "~2.0.0",
+	"splashlab/yii-facebook-opengraph": "dev-master",
+	"google/apiclient": "1.0.*@beta",
+	"whatsapp/chat-api": "*",
+        "j7mbo/twitter-api-php": "*",
+        "dropbox/dropbox-sdk": "1.1.*",
+        "guzzlehttp/guzzle": "6.*",
+        "omines/directadmin": "*",
+        "syren7/owncloud-api-bundle":"*",
+        "php-imap/php-imap": "~2.0",
+        "tan-tan-kanarek/github-php-client":"*",
+        "macgyer/yii2-materializecss": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

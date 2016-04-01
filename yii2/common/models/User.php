@@ -20,6 +20,10 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ * @property GoogleUser $googleUsers[]
+ * @property Contacts $contacts[]
+ * @property UserGoogleLink $userGoogleLink[]
+ * @property UserContactsLink $userContactsLink[]
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -184,5 +188,79 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserContactsLink()
+    {
+        return $this->hasMany(UserContactsLink::className(), ['user_id' => 'id']);
+    }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserGoogleLink(){
+        return $this->hasMany(UserGoogleLink::className(), ['user_id' => 'id']);
+    }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserSettings(){
+        return $this->hasMany(UserSettings::className(), ['user_id' => 'id']);
+    }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserDevices(){
+        return $this->hasMany(UserDevices::className(), ['user_id' => 'id']);
+    }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGoogleUsers(){
+        
+        $GoogleUsers = array();
+        
+        $GoogleUserList = $this->userGoogleLink;
+        
+        foreach($GoogleUserList as $UserGoogleLink){
+            $GoogleUsers[] = $UserGoogleLink->googleUser;
+        }
+        
+        return $GoogleUsers;
+        
+    }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getContacts(){
+        
+        $Contacts = array();
+        foreach($this->getUserContactsLink() as $UserContactsLink){
+            $Contacts[] = $UserContactsLink->Contact();
+        }
+        
+        return $Contacts;
+        
+    }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDevices(){
+        
+        $Devices = array();
+        foreach($this->getUserDevices() as $UserDevice){
+            $Devices[] = $UserDevice->Device();
+        }
+        
+        return $Devices;
+        
     }
 }

@@ -1,2 +1,4 @@
 main-local.php
 params-local.php
+*.json
+*p12
