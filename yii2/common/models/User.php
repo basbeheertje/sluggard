@@ -228,8 +228,10 @@ class User extends ActiveRecord implements IdentityInterface
         
         $GoogleUserList = $this->userGoogleLink;
         
-        foreach($GoogleUserList as $UserGoogleLink){
-            $GoogleUsers[] = $UserGoogleLink->googleUser;
+        if(!empty($GoogleUserList)){
+            foreach($GoogleUserList as $UserGoogleLink){
+                $GoogleUsers[] = $UserGoogleLink->googleUser;
+            }
         }
         
         return $GoogleUsers;
@@ -242,8 +244,13 @@ class User extends ActiveRecord implements IdentityInterface
     public function getContacts(){
         
         $Contacts = array();
-        foreach($this->getUserContactsLink() as $UserContactsLink){
-            $Contacts[] = $UserContactsLink->Contact();
+        
+        $UserContactsLinkList = $this->userContactsLink;
+        
+        if(!empty($UserContactsLinkList)){
+            foreach($UserContactsLinkList as $UserContactsLink){
+                $Contacts[] = $UserContactsLink->Contact();
+            }
         }
         
         return $Contacts;
@@ -256,8 +263,13 @@ class User extends ActiveRecord implements IdentityInterface
     public function getDevices(){
         
         $Devices = array();
-        foreach($this->getUserDevices() as $UserDevice){
-            $Devices[] = $UserDevice->Device();
+        
+        $UserDevicesList = $this->userDevices;
+        
+        if(!empty($UserDevicesList)){
+            foreach($UserDevicesList as $UserDevice){
+                $Devices[] = $UserDevice->device;
+            }
         }
         
         return $Devices;

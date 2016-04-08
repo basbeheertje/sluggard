@@ -24,5 +24,15 @@ return [
     'Login' => 'Inloggen',
     'Lots of integrations' => 'Veel integraties mogelijk',
     'There are many integrations possible.' => 'De mogelijkheden zijn oneindig',
-    'Profile' => 'Profiel'
+    'Profile' => 'Profiel',
+    'Add' => 'Toevoegen',
+    'Default' => 'Standaard',
+    'Unknown' => 'Onbekend',
+    'Edit' => 'Wijzig',
+    'edit' => 'Wijzig',
+    'Synchronization' => 'Synchronisatie',
+    'Contacts' => 'Contacten',
+    'Calendar' => 'Kalender',
+    'Location' => 'Lokatie',
+    'Close' => 'Sluiten'
 ];

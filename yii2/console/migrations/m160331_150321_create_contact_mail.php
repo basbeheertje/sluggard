@@ -9,8 +9,8 @@ class m160331_150321_create_contact_mail extends Migration
         
         $this->createTable('mailaddress', [
             'id'            => $this->primaryKey(),
-            'name'          => $this->integer()->notNull(),
-            'address'       => $this->integer()->notNull(),
+            'name'          => $this->text()->notNull(),
+            'address'       => $this->text()->notNull(),
             'updated_at'    => $this->timestamp()->notNull(),
             'created_at'    => $this->timestamp()->notNull(),
             'creator'       => $this->integer()->notNull()

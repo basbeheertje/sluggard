@@ -15,8 +15,7 @@ class UserController extends BaseController{
     public $defaultAction = 'index';
     public $modelClass = 'User';
     
-    public function init()
-    {
+    public function init(){
         parent::init();
         \Yii::$app->params['sidebaritems'] = [
             [

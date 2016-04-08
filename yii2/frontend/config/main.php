@@ -23,6 +23,16 @@ return [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'categories' => ['frontend'],
+                    'logFile' => '@app/runtime/logs/frontend.log',
+                ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'categories' => ['googletokens'],
+                    'logFile' => '@app/runtime/logs/googletokens.log',
+                ],
             ],
         ],
         'errorHandler' => [
@@ -36,6 +46,14 @@ return [
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
+        ],
+    ],
+    'modules' => [
+        'google' => [
+            'class' => 'frontend\modules\google\Module',
+        ],
+        'whattsapp' => [
+            'class' => 'frontend\modules\whattsapp\Module',
         ],
     ],
     'params' => $params,

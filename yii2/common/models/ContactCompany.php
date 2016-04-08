@@ -10,7 +10,7 @@ use Yii;
  * @property integer $id
  * @property integer $contact_id
  * @property integer $company_id
- * @property string $function
+ * @property string $title
  * @property string $updated_at
  * @property string $created_at
  * @property integer $creator
@@ -35,9 +35,9 @@ class ContactCompany extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['contact_id', 'company_id', 'function', 'creator'], 'required'],
+            [['contact_id', 'company_id', 'title', 'creator'], 'required'],
             [['contact_id', 'company_id', 'creator'], 'integer'],
-            [['function'], 'string'],
+            [['title'], 'string'],
             [['updated_at', 'created_at'], 'safe'],
             [['contact_id'], 'exist', 'skipOnError' => true, 'targetClass' => Contact::className(), 'targetAttribute' => ['contact_id' => 'id']],
             [['company_id'], 'exist', 'skipOnError' => true, 'targetClass' => Company::className(), 'targetAttribute' => ['company_id' => 'id']],
@@ -54,7 +54,7 @@ class ContactCompany extends \yii\db\ActiveRecord
             'id' => 'ID',
             'contact_id' => 'Contact ID',
             'company_id' => 'Company ID',
-            'function' => 'Function',
+            'title' => 'Title',
             'updated_at' => 'Updated At',
             'created_at' => 'Created At',
             'creator' => 'Creator',

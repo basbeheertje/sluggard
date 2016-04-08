@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "phonenumber".
  *
  * @property integer $id
- * @property integer $number
+ * @property string $number
  * @property integer $phonetypes_id
  * @property string $updated_at
  * @property string $created_at
@@ -36,7 +36,7 @@ class Phonenumber extends \yii\db\ActiveRecord
     {
         return [
             [['number', 'creator'], 'required'],
-            [['number', 'phonetypes_id', 'creator'], 'integer'],
+            [['phonetypes_id', 'creator'], 'integer'],
             [['updated_at', 'created_at'], 'safe'],
             [['creator'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['creator' => 'id']],
             [['phonetypes_id'], 'exist', 'skipOnError' => true, 'targetClass' => Phonetypes::className(), 'targetAttribute' => ['phonetypes_id' => 'id']],

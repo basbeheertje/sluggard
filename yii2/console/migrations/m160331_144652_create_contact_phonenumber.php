@@ -33,7 +33,7 @@ class m160331_144652_create_contact_phonenumber extends Migration
         
         $this->createTable('phonenumber', [
             'id'            => $this->primaryKey(),
-            'number'        => $this->integer()->notNull(),
+            'number'        => $this->text()->notNull(),
             'phonetypes_id' => $this->integer()->notNull()->defaultValue(1),
             'updated_at'    => $this->timestamp()->notNull(),
             'created_at'    => $this->timestamp()->notNull(),

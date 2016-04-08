@@ -6,3 +6,5 @@
 .primary-text-color    { color: #212121; }
 .secondary-text-color  { color: #727272; }
 .divider-color         { border-color: #B6B6B6; }
+#sidebar-hamburger     {position: fixed;top: 92px;left: 11px;}
+select{display:inline-block;}

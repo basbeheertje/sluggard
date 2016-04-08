@@ -32,7 +32,7 @@ class m160331_144718_create_contact_company extends Migration
             'id'            => $this->primaryKey(),
             'contact_id'    => $this->integer()->notNull(),
             'company_id'    => $this->integer()->notNull(),
-            'function'      => $this->text()->notNull(),
+            'title'         => $this->text()->notNull(),
             'updated_at'    => $this->timestamp()->notNull(),
             'created_at'    => $this->timestamp()->notNull(),
             'creator'       => $this->integer()->notNull()

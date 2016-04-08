@@ -35,7 +35,6 @@ class BaseController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                /*'only' => ['logout', 'signup'],*/
                 'rules' => [
                     [
                         'actions' => ['login','error'],

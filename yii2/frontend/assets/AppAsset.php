@@ -23,6 +23,7 @@ class AppAsset extends AssetBundle
         'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
     ];
     public $js = [
+        'js/ajax-modal-popup.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

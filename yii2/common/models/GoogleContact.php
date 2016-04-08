@@ -35,12 +35,12 @@ class GoogleContact extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['google_user_id', 'contacts_id', 'etag', 'updated', 'creator'], 'required'],
-            [['google_user_id', 'contacts_id', 'creator'], 'integer'],
+            [['google_user_id', 'contact_id', 'etag', 'updated', 'creator'], 'required'],
+            [['google_user_id', 'contact_id', 'creator'], 'integer'],
             [['etag', 'updated'], 'string'],
             [['create_at'], 'safe'],
             [['creator'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['creator' => 'id']],
-            [['contacts_id'], 'exist', 'skipOnError' => true, 'targetClass' => Contact::className(), 'targetAttribute' => ['contacts_id' => 'id']],
+            [['contact_id'], 'exist', 'skipOnError' => true, 'targetClass' => Contact::className(), 'targetAttribute' => ['contact_id' => 'id']],
             [['google_user_id'], 'exist', 'skipOnError' => true, 'targetClass' => GoogleUser::className(), 'targetAttribute' => ['google_user_id' => 'id']],
         ];
     }
@@ -53,7 +53,7 @@ class GoogleContact extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'google_user_id' => 'Google User ID',
-            'contacts_id' => 'Contacts ID',
+            'contact_id' => 'Contact ID',
             'etag' => 'Etag',
             'updated' => 'Updated',
             'create_at' => 'Create At',
@@ -72,9 +72,9 @@ class GoogleContact extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getContacts()
+    public function getContact()
     {
-        return $this->hasOne(Contact::className(), ['id' => 'contacts_id']);
+        return $this->hasOne(Contact::className(), ['id' => 'contact_id']);
     }
 
     /**

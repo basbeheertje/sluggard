@@ -5,7 +5,8 @@ use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
-use yii\web\IdentityInterface;
+use common\models\Contact;
+use common\models\User;
 
 /**
  * Description of GoogleUser
@@ -51,7 +52,7 @@ class UserContactsLink extends ActiveRecord{
                 ['contacts_id'],
                 'exist',
                 'skipOnError'     => true,
-                'targetClass'     => Contacts::className(),
+                'targetClass'     => Contact::className(),
                 'targetAttribute' => ['contacts_id' => 'id']
             ],
             [
@@ -76,7 +77,7 @@ class UserContactsLink extends ActiveRecord{
      * @inheritdoc
      */
     public function getContact(){
-        return $this->hasOne(Contacts::className(), ['id' => 'contacts_id']);        
+        return $this->hasOne(Contact::className(), ['id' => 'contacts_id']);        
     }
     
     /**

@@ -8,7 +8,7 @@ class m160401_151513_create_device_type extends Migration
     {
         $this->createTable('device_type', [
             'id'                => $this->primaryKey(),
-            'name'              => $this->integer()->notNull(),
+            'name'              => $this->text()->notNull(),
             'updated_at'        => $this->timestamp()->notNull(),
             'created_at'        => $this->timestamp()->notNull(),
             'creator'           => $this->integer()->notNull()
@@ -24,6 +24,14 @@ class m160401_151513_create_device_type extends Migration
             'creator'           => '1',
         ]);
         
+        $this->insert('device_type', [
+            'id'                => '2',
+            'name'              => 'Desktop PC',
+            'created_at'        => date('Y-m-d H:i:s'),
+            'updated_at'        => date('Y-m-d H:i:s'),
+            'creator'           => '1',
+        ]);
+        
     }
 
     public function down()
@@ -31,6 +39,7 @@ class m160401_151513_create_device_type extends Migration
         $this->dropForeignKey('fk-device_type-creator','device_type');
         
         $this->delete('device_type', ['id' => 1]);
+        $this->delete('device_type', ['id' => 2]);
         
         $this->truncateTable('device_type');
         

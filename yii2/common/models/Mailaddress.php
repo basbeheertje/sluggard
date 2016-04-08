@@ -34,7 +34,7 @@ class Mailaddress extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'address', 'creator'], 'required'],
-            [['name', 'address', 'creator'], 'integer'],
+            [['creator'], 'integer'],
             [['updated_at', 'created_at'], 'safe'],
         ];
     }

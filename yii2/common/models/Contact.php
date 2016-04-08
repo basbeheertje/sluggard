@@ -17,7 +17,7 @@ class Contact extends ActiveRecord{
      */
     public static function tableName()
     {
-        return '{{%contacts}}';
+        return '{{%contact}}';
     }
 
     /**
@@ -36,7 +36,7 @@ class Contact extends ActiveRecord{
                 [
                     'main_name'
                 ],
-                'text'
+                'string'
             ],
         ];
     }

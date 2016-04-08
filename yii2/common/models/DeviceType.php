@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "device_type".
  *
  * @property integer $id
- * @property integer $name
+ * @property string $name
  * @property string $updated_at
  * @property string $created_at
  * @property integer $creator
@@ -32,7 +32,7 @@ class DeviceType extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'creator'], 'required'],
-            [['name', 'creator'], 'integer'],
+            [['creator'], 'integer'],
             [['updated_at', 'created_at'], 'safe'],
             [['creator'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['creator' => 'id']],
         ];

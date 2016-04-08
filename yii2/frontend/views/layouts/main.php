@@ -81,6 +81,28 @@ AppAsset::register($this);
                 <p class="pull-right"><?= Yii::powered() ?></p>
             </div>
         </footer>-->
+        <?php
+        
+            yii\bootstrap\Modal::begin([
+                'headerOptions' => ['id' => 'modalHeader'],
+                'id' => 'modal',
+                'size' => 'modal-lg',
+                //keeps from closing modal with esc key or by clicking out of the modal.
+                // user must click cancel or X to close
+                //'clientOptions' => ['backdrop' => 'static', 'keyboard' => FALSE]
+                /*'clientOptions' => [
+                    //'backdrop' => 'static', 
+                    'keyboard' => true                    
+                ],
+                'closeButton' => [
+                    'tag' => 'a',
+                    'lable' => Yii::t('app','Close')
+                ],*/
+            ]);
+            echo "<div id='modalContent'></div>";
+            yii\bootstrap\Modal::end();
+            
+        ?>
         <?php $this->endBody() ?>
     </body>
 </html>
