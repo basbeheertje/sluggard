@@ -249,7 +249,7 @@ class User extends ActiveRecord implements IdentityInterface
         
         if(!empty($UserContactsLinkList)){
             foreach($UserContactsLinkList as $UserContactsLink){
-                $Contacts[] = $UserContactsLink->Contact();
+                $Contacts[] = $UserContactsLink->contact;
             }
         }
         

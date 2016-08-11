@@ -16,6 +16,9 @@ use common\components\GoogleHitoryAPIHelper;
  * Class GoogleAPIHelper
  * @since 2016-03-31
  * @author Bas van Beers
+ * 
+ * @property const SCOPE
+ *
  */
 class GoogleAPIHelper extends Component {
     
@@ -71,22 +74,31 @@ class GoogleAPIHelper extends Component {
     /**
      * Retrieves info about the Google User
      * @param \Google_Client $client
-     * @return type
+     * @return array
      */
     public static function getUserInfo(\Google_Client $client){
         
+        /** @var string $access_token */
         $access_token = json_decode($client->getAccessToken())->access_token;
         
+        /** @var string $url */
         $url = 'https://www.googleapis.com/oauth2/v1/userinfo?oauth_token='.$access_token;
 
+        /** @var string $response */
         $response =  file_get_contents($url);
-            
+        
+        /** @var array $j */
         $j = json_decode($response);
         
         return $j;
         
     }
     
+    /**
+     * Gets an new refreshtoken by accesstoken
+     * @param string $accesstoken
+     * @return $client
+     */
     public static function refreshToken($accesstoken){
         
         if($client->isAccessTokenExpired()) {

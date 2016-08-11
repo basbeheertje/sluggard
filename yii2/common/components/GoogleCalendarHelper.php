@@ -11,6 +11,9 @@ use common\components\GoogleAPIHelper;
  * Class GoogleCalendarHelper
  * @since 2016-03-31
  * @author Bas van Beers
+ * 
+ * @property const string SCOPE
+ * 
  */
 class GoogleCalendarHelper extends Component {
     
@@ -18,8 +21,7 @@ class GoogleCalendarHelper extends Component {
     const SCOPE = 'https://www.googleapis.com/auth/calendar';
     
     /**
-     * @since 2016-03-31
-     * @author Bas van Beers
+     * Checks if the GoogleCalendarHelper is enabled
      * @return boolean
      */
     public static function isEnabled(){

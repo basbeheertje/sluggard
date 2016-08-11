@@ -42,6 +42,11 @@ AppAsset::register($this);
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => \Yii::t('app', 'Login'), 'url' => ['/site/login']];
             } else {
+                //$menuItems[] = ['label' => \Yii::t('app', 'IMDB'), 'url' => ['/imdb/index/index']];
+                $menuItems[] = ['label' => \Yii::t('app', 'Contacts'), 'url' => ['/contact/index']];
+                $menuItems[] = ['label' => \Yii::t('app', 'Domotica'), 'url' => ['/domotica/index']];
+                $menuItems[] = ['label' => \Yii::t('app', 'Movies'), 'url' => ['/movie/index']];
+                $menuItems[] = ['label' => \Yii::t('app', 'Music'), 'url' => ['/music/index']];
                 $menuItems[] = ['label' => \Yii::t('app', 'Profile'), 'url' => ['/user/index']];
                 $menuItems[] = ['label' => \Yii::t('app', 'Logout'), 'url' => ['/site/logout']];
             }

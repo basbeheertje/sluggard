@@ -139,6 +139,22 @@ class GoogleUser extends ActiveRecord{
         }
         
     }
+    
+    public function getGoogleClientObject(){
+        
+        /** @var \Google_Client $client */
+        $client = new \Google_Client();
+        $client = GoogleAPIHelper::addScopes($client);
+        $client->setAuthConfigFile(\Yii::$app->params['google']['AuthConfigFile']);
+        $client->setAccessType('offline');
+        
+        $client->setAccessToken($this->access_token);
+        
+        $this->refreshToken();
+        
+        return $client;
+        
+    }
    
     public function refreshProfileInfo(){
         
@@ -186,6 +202,35 @@ class GoogleUser extends ActiveRecord{
         
         return false;
         
+    }
+    
+    /**
+     * Retrieves all users for an Google user
+     * @return type
+     */
+    public function getUsers(){
+        
+        /** @var array $Users */
+        $Users = array();
+        
+        /** @var UserGoogleLink[] $GoogleUserList */
+        $GoogleUserList = $this->userGoogleLink;
+        
+        if(!empty($GoogleUserList)){
+            foreach($GoogleUserList as $UserGoogleLink){
+                $Users[] = $UserGoogleLink->user;
+            }
+        }
+        
+        return $Users;
+        
+    }
+    
+    /**
+     * @return UserGoogleLink[]
+     */
+    public function getUserGoogleLink(){
+        return $this->hasMany(UserGoogleLink::className(), ['google_user_id' => 'id']);
     }
     
 }

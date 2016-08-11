@@ -43,3 +43,7 @@ phpunit.phar
 #no local config files
 params-local.php
 main-local.php
+
+/pocs/*
+/yii2/frontend/web/images/imdb/tt*.jpg
+/yii2/frontend/modules/imdb/cache/*

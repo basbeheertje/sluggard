@@ -19,7 +19,7 @@ class GoogleContactsTask extends CronTask {
     function execute() {
         
         /** @var GoogleUser $GoogleUsers */
-	$GoogleUsers = $this->getAllGoogleUsers();
+		$GoogleUsers = $this->getAllGoogleUsers();
 		
         /** @var GoogleUser $GoogleUser */
         foreach($GoogleUsers as $GoogleUser){
@@ -35,28 +35,16 @@ class GoogleContactsTask extends CronTask {
                     GoogleContactsHelper::addContact($googleContact, $GoogleUser);
                 }
                 
-                exit;
-                
-                /** START PLAYGROUND */
-                
-                $json = json_encode($GoogleContacts);
-                foreach($GoogleContacts as $key => $value){
-                    echo $key."<br/>\r\n";
-                }
-                
-                file_put_contents('contacts.txt',$json);
-                
-                //var_dump($GoogleContacts);
-                
-                echo 'THERE ARE NO CONTACTS!';
-                
-                /** END PLAYGROUND */
-                
             }else{
-                
-                var_dump($lastContact);
-                print_r($lastContact);
-                echo 'THERE IS AN CONTACT!';
+				
+				/** @var array $GoogleContacts */
+                $GoogleContacts = GoogleContactsHelper::getAllContactsFromDate($GoogleUser, $lastContact->updated);
+				
+				foreach($GoogleContacts as $googleContact){
+                    GoogleContactsHelper::addContact($googleContact, $GoogleUser);
+                }
+				
+                //echo 'THERE IS AN CONTACT!';
                 
             }
             

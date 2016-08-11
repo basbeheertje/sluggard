@@ -40,7 +40,7 @@ class Device extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'imei', 'mac', 'ip', 'number', 'brand', 'version', 'creator'], 'required'],
+            [['name', 'mac', 'ip', 'brand', 'version', 'creator'], 'required'],
             [['name', 'imei', 'mac', 'ip', 'number', 'brand', 'version'], 'string'],
             [['device_type', 'creator'], 'integer'],
             [['updated_at', 'created_at'], 'safe'],
@@ -92,4 +92,13 @@ class Device extends \yii\db\ActiveRecord
     {
         return $this->hasMany(UserDevices::className(), ['device_id' => 'id']);
     }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDeviceType()
+    {
+        return $this->hasOne(DeviceType::className(), ['id' => 'device_type']);
+    }
+    
 }

@@ -35,7 +35,8 @@
         "yiisoft/yii2-codeception": "~2.0.0",
         "giggsey/libphonenumber-for-php": "*",
         "X11/php-torrent-search":"*",
-        "vioweb/phptorrents": "dev-master"
+        "vioweb/phptorrents": "dev-master",
+		"sgrodzicki/pagespeed": "~2.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

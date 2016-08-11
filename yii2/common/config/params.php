@@ -21,5 +21,11 @@ return [
     ],
     'defaults' => [
         'countrycode'       => 'NL'
+    ],
+    'torrents' => [
+        'enabled'           => true,
+        'minimumsize'       => 1000000000,
+        'maximumsize'       => 5000000000,
+        'minimumseeds'      => 20
     ]
 ];

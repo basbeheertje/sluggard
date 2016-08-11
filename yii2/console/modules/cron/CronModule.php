@@ -1,8 +1,6 @@
 <?php
 
-
 namespace console\modules\cron;
-
 
 use yii\base\Module;
 

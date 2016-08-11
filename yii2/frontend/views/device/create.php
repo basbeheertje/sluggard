@@ -16,7 +16,6 @@
 <?php
     
     echo $form->field($model, 'name')->textInput();
-    echo $form->field($model, 'brand')->textInput();
     echo $form->field($model, 'imei')->textInput();
     echo $form->field($model, 'mac')->textInput();
     echo $form->field($model, 'ip')->textInput();

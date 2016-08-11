@@ -19,31 +19,31 @@
                 </div>
                 <div class="row">
                     <span class="col s6 m6"><?= \Yii::t('app','Imei'); ?></span>
-                    <span class="col s6 m6"><?= $device->deviceType->imei; ?></span>
+                    <span class="col s6 m6"><?= $device->imei; ?></span>
                 </div>
                 <div class="row">
                     <span class="col s6 m6"><?= \Yii::t('app','Mac Address'); ?></span>
-                    <span class="col s6 m6"><?= $device->deviceType->mac; ?></span>
+                    <span class="col s6 m6"><?= $device->mac; ?></span>
                 </div>
                 <div class="row">
                     <span class="col s6 m6"><?= \Yii::t('app','IP Address'); ?></span>
-                    <span class="col s6 m6"><?= $device->deviceType->ip; ?></span>
+                    <span class="col s6 m6"><?= $device->ip; ?></span>
                 </div>
                 <div class="row">
                     <span class="col s6 m6"><?= \Yii::t('app','Number'); ?></span>
-                    <span class="col s6 m6"><?= $device->deviceType->number; ?></span>
+                    <span class="col s6 m6"><?= $device->number; ?></span>
                 </div>
                 <div class="row">
                     <span class="col s6 m6"><?= \Yii::t('app','Brand'); ?></span>
-                    <span class="col s6 m6"><?= $device->deviceType->brand; ?></span>
+                    <span class="col s6 m6"><?= $device->brand; ?></span>
                 </div>
                 <div class="row">
                     <span class="col s6 m6"><?= \Yii::t('app','Version'); ?></span>
-                    <span class="col s6 m6"><?= $device->deviceType->version; ?></span>
+                    <span class="col s6 m6"><?= $device->version; ?></span>
                 </div>
             </div>
             <div class="card-action">
-                <a href="/device/remove?id=<?php echo $GoogleUser->id; ?>"><?php echo \Yii::t('app','Remove'); ?></a>
+                <a href="/device/delete?id=<?php echo $device->id; ?>"><?php echo \Yii::t('app','Remove'); ?></a>
             </div>
         </div>
     </div>

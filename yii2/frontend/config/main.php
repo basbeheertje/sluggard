@@ -55,6 +55,9 @@ return [
         'whattsapp' => [
             'class' => 'frontend\modules\whattsapp\Module',
         ],
+        'imdb' => [
+            'class' => 'frontend\modules\imdb\Module',
+        ],
     ],
     'params' => $params,
 ];
